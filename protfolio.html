@@ -52,6 +52,58 @@
             padding: 100px 0;
         }
 
+        /* Comic Web Elements */
+        .comic-web {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            border: 3px solid var(--dark);
+            border-radius: 50%;
+            opacity: 0.2;
+            z-index: -1;
+        }
+        
+        .comic-web::before, .comic-web::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            border: 2px solid var(--dark);
+            border-radius: 50%;
+        }
+        
+        .comic-web::after {
+            width: 60%;
+            height: 60%;
+        }
+        
+        .web-1 {
+            top: 10%;
+            right: 5%;
+        }
+        
+        .web-2 {
+            bottom: 15%;
+            left: 5%;
+        }
+        
+        .comic-dot {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: var(--dark);
+            border-radius: 50%;
+            opacity: 0.2;
+        }
+        
+        .dot-1 { top: 20%; left: 10%; }
+        .dot-2 { top: 60%; right: 15%; }
+        .dot-3 { bottom: 25%; left: 20%; }
+        .dot-4 { bottom: 10%; right: 25%; }
+
         /* Header & Navigation */
         header {
             position: fixed;
@@ -59,10 +111,11 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px 0;
+            padding: 15px 0;
             transition: all 0.3s ease;
             background-color: var(--light);
             border-bottom: var(--comic-border);
+            height: 70px;
         }
 
         header.scrolled {
@@ -73,6 +126,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
         }
 
         .logo {
@@ -128,16 +182,22 @@
             border: var(--comic-border);
             box-shadow: 3px 3px 0 var(--dark);
             z-index: 1001;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-btn:active {
+            transform: scale(0.95);
+            box-shadow: 1px 1px 0 var(--dark);
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
-            padding-top: 80px;
+            padding-top: 70px;
         }
 
         .hero-content {
@@ -155,6 +215,11 @@
             box-shadow: var(--comic-shadow);
             max-width: 600px;
             margin-bottom: 30px;
+            transition: transform 0.3s ease;
+        }
+        
+        .speech-bubble:hover {
+            transform: translateY(-5px);
         }
 
         .speech-bubble::after {
@@ -231,6 +296,11 @@
         .btn:hover {
             transform: translate(-3px, -3px);
             box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .btn:active {
+            transform: translate(0, 0);
+            box-shadow: 3px 3px 0 var(--dark);
         }
 
         .btn-outline {
@@ -326,6 +396,18 @@
             border-radius: 15px;
             border: 2px solid var(--light);
             box-shadow: 3px 3px 0 var(--dark);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .detail-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        .detail-item:active {
+            transform: translateY(0);
+            box-shadow: 1px 1px 0 var(--dark);
         }
 
         .detail-item i {
@@ -347,6 +429,17 @@
             overflow: hidden;
             position: relative;
             background: linear-gradient(45deg, var(--primary-light), var(--accent));
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .profile-picture:hover {
+            transform: scale(1.03);
+        }
+        
+        .profile-picture:active {
+            transform: scale(0.98);
+            box-shadow: 3px 3px 0 var(--dark);
         }
 
         .profile-img {
@@ -405,11 +498,17 @@
             box-shadow: var(--comic-shadow);
             position: relative;
             overflow: hidden;
+            cursor: pointer;
         }
 
         .skill-category:hover {
             transform: translate(-5px, -5px);
             box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .skill-category:active {
+            transform: translate(0, 0);
+            box-shadow: 3px 3px 0 var(--dark);
         }
 
         .skill-title {
@@ -473,11 +572,17 @@
             transition: transform 0.3s ease;
             border: var(--comic-border);
             box-shadow: var(--comic-shadow);
+            cursor: pointer;
         }
 
         .project-card:hover {
             transform: translate(-5px, -5px) rotate(2deg);
             box-shadow: 10px 10px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-card:active {
+            transform: translate(0, 0) rotate(0);
+            box-shadow: 3px 3px 0 var(--dark);
         }
 
         .project-img {
@@ -525,6 +630,12 @@
             margin-bottom: 10px;
             border: 2px solid var(--dark);
             font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .tag:hover {
+            transform: translateY(-3px);
+            box-shadow: 3px 3px 0 var(--dark);
         }
 
         /* Contact Section */
@@ -553,6 +664,17 @@
             border-radius: 15px;
             border: var(--comic-border);
             box-shadow: var(--comic-shadow);
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .contact-item:hover {
+            transform: translateX(5px);
+        }
+        
+        .contact-item:active {
+            transform: translateX(0);
+            box-shadow: 3px 3px 0 var(--dark);
         }
 
         .contact-icon {
@@ -607,6 +729,13 @@
             color: var(--dark);
             font-family: 'Poppins', sans-serif;
             font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px var(--primary-light);
+            transform: translateY(-3px);
         }
 
         textarea.form-control {
@@ -642,12 +771,18 @@
             transition: all 0.3s ease;
             border: var(--comic-border);
             box-shadow: var(--comic-shadow);
+            cursor: pointer;
         }
 
         .social-link:hover {
             background: var(--secondary);
             transform: translate(-3px, -3px);
             box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2);
+        }
+        
+        .social-link:active {
+            transform: translate(0, 0);
+            box-shadow: 3px 3px 0 var(--dark);
         }
 
         .copyright {
@@ -723,10 +858,35 @@
             .btn-outline {
                 margin-left: 0;
             }
+            
+            /* Fix for mobile viewport issue */
+            .hero {
+                min-height: calc(100vh - 70px);
+                padding-top: 90px;
+            }
+            
+            .comic-web, .comic-dot {
+                display: none;
+            }
+        }
+        
+        /* iOS Safari specific fixes */
+        @supports (-webkit-touch-callout: none) {
+            .hero {
+                min-height: -webkit-fill-available;
+            }
         }
     </style>
 </head>
 <body>
+    <!-- Comic Web Elements -->
+    <div class="comic-web web-1"></div>
+    <div class="comic-web web-2"></div>
+    <div class="comic-dot dot-1"></div>
+    <div class="comic-dot dot-2"></div>
+    <div class="comic-dot dot-3"></div>
+    <div class="comic-dot dot-4"></div>
+
     <!-- Header & Navigation -->
     <header>
         <div class="container nav-container">
@@ -761,7 +921,7 @@
                 <a href="#contact" class="btn btn-outline">Get In Touch</a>
             </div>
         </div>
-</section>
+    </section>
 
     <!-- About Section -->
     <section class="about" id="about">
@@ -790,11 +950,11 @@
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-envelope"></i>
-                            <span>kyawthutao@example.com</span>
+                            <span>kyawthutao2004@gmail.com</span>
                         </div>
                         <div class="detail-item">
                             <i class="fas fa-phone"></i>
-                            <span>+95 123 456 789</span>
+                            <span>+95 968 611 8284</span>
                         </div>
                     </div>
                 </div>
@@ -803,8 +963,6 @@
                     <div class="profile-picture">
                         <!-- Replace with your actual profile image -->
                         <img src="profile.png" alt="Kyaw Thuta Oo" class="profile-img">
-                        
-                        <!-- Placeholder (remove when adding your image) -->
                         <!-- <div class="profile-placeholder">
                             <i class="fas fa-user-circle"></i>
                             <p>Your Profile Picture Here</p>
@@ -945,7 +1103,7 @@
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Data Visualization Dashboard</h3>
+                        <h3 class="project-title">Example project 2</h3>
                         <p class="project-desc">An interactive dashboard for data analysis and visualization using React and D3.js.</p>
                         <div class="project-tags">
                             <span class="tag">React</span>
@@ -961,7 +1119,7 @@
                         <i class="fas fa-robot"></i>
                     </div>
                     <div class="project-content">
-                        <h3 class="project-title">Chatbot Implementation</h3>
+                        <h3 class="project-title">Example project 3</h3>
                         <p class="project-desc">A NLP-based chatbot using sequence-to-sequence modeling for customer support.</p>
                         <div class="project-tags">
                             <span class="tag">Python</span>
@@ -987,7 +1145,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p>kyawthutao@example.com</p>
+                            <p>kyawthutao2004@gmail.com</p>
                         </div>
                     </div>
                     
@@ -997,7 +1155,7 @@
                         </div>
                         <div class="contact-details">
                             <h4>Phone</h4>
-                            <p>+95 123 456 789</p>
+                            <p>+95 960 611 8284</p>
                         </div>
                     </div>
                     
@@ -1047,8 +1205,8 @@
             <div class="social-links">
                 <a href="#" class="social-link"><i class="fab fa-github"></i></a>
                 <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-medium-m"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="copyright">© 2023 Kyaw Thuta Oo. All Rights Reserved.</p>
         </div>
@@ -1122,22 +1280,30 @@
                 const skillBars = document.querySelectorAll('.skill-progress');
                 skillBars.forEach(bar => {
                     const width = bar.getAttribute('data-width');
+                    // Set the width directly
                     bar.style.width = width;
                 });
             }
             
+            // Initialize skill bars with 0 width, then animate when in view
+            document.querySelectorAll('.skill-progress').forEach(bar => {
+                bar.style.width = '0';
+            });
+            
             // Use Intersection Observer to trigger skill bar animation
             const skillsSection = document.querySelector('.skills');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        animateSkillBars();
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            observer.observe(skillsSection);
+            if (skillsSection) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            animateSkillBars();
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+                
+                observer.observe(skillsSection);
+            }
             
             // Form submission
             const contactForm = document.getElementById('contactForm');
@@ -1160,6 +1326,94 @@
                 button.addEventListener('mouseleave', function() {
                     this.style.transform = 'translate(0, 0)';
                     this.style.boxShadow = '6px 6px 0px rgba(0, 0, 0, 0.2)';
+                });
+            });
+            
+            // Add click effects to interactive elements
+            const interactiveElements = document.querySelectorAll('.btn, .detail-item, .skill-category, .project-card, .contact-item, .social-link, .profile-picture');
+            
+            interactiveElements.forEach(element => {
+                element.addEventListener('mousedown', function() {
+                    this.style.transform = 'scale(0.95)';
+                });
+                
+                element.addEventListener('mouseup', function() {
+                    this.style.transform = '';
+                });
+                
+                element.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                });
+                
+                // Touch events for mobile
+                element.addEventListener('touchstart', function() {
+                    this.style.transform = 'scale(0.95)';
+                }, {passive: true});
+                
+                element.addEventListener('touchend', function() {
+                    this.style.transform = '';
+                }, {passive: true});
+            });
+            
+            // Add a fun comic "pow" effect when clicking the logo
+            const logo = document.querySelector('.logo');
+            logo.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Create pow effect element
+                const pow = document.createElement('div');
+                pow.textContent = 'POW!';
+                pow.style.position = 'fixed';
+                pow.style.top = '50%';
+                pow.style.left = '50%';
+                pow.style.transform = 'translate(-50%, -50%)';
+                pow.style.fontSize = '5rem';
+                pow.style.fontFamily = "'Comic Neue', cursive";
+                pow.style.color = '#6C4AB6'; // Using the actual color value instead of var()
+                pow.style.zIndex = '10000';
+                pow.style.opacity = '0';
+                pow.style.textShadow = '5px 5px 0 rgba(0,0,0,0.3)';
+                pow.style.pointerEvents = 'none';
+                
+                document.body.appendChild(pow);
+                
+                // Animate the pow effect
+                let opacity = 0;
+                let scale = 0.5;
+                const animate = () => {
+                    opacity += 0.05;
+                    scale += 0.05;
+                    
+                    pow.style.opacity = opacity;
+                    pow.style.transform = `translate(-50%, -50%) scale(${scale})`;
+                    
+                    if (opacity < 1) {
+                        requestAnimationFrame(animate);
+                    } else {
+                        // Fade out
+                        const fadeOut = () => {
+                            opacity -= 0.05;
+                            pow.style.opacity = opacity;
+                            
+                            if (opacity > 0) {
+                                requestAnimationFrame(fadeOut);
+                            } else {
+                                document.body.removeChild(pow);
+                            }
+                        };
+                        
+                        setTimeout(() => {
+                            requestAnimationFrame(fadeOut);
+                        }, 200);
+                    }
+                };
+                
+                requestAnimationFrame(animate);
+                
+                // Scroll to top
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
                 });
             });
         });
