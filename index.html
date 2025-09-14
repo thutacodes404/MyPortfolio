@@ -1160,6 +1160,137 @@
                 min-height: -webkit-fill-available;
             }
         }
+
+
+        /* Education Section Enhancements */
+        .timeline-content {
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 0px rgba(0, 0, 0, 0.2) !important;
+        }
+
+        .timeline-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .timeline-expand {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background: var(--primary-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-left: 15px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+            border: 2px solid var(--dark);
+        }
+
+        .timeline-content:hover .timeline-expand {
+            background: var(--secondary);
+            transform: scale(1.1);
+        }
+
+        .timeline-more {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+            padding-top: 0;
+        }
+
+        .timeline-item.active .timeline-more {
+            max-height: 300px;
+            padding-top: 15px;
+        }
+
+        .timeline-item.active .timeline-expand i {
+            transform: rotate(180deg);
+        }
+
+        .timeline-expand i {
+            transition: transform 0.3s ease;
+        }
+
+        /* Timeline line animation */
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--light);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 10px;
+            border: 2px solid var(--dark);
+            transform: scaleY(0);
+            transform-origin: top;
+            animation: timelineGrow 2s ease forwards;
+            animation-delay: 0.5s;
+        }
+
+        @keyframes timelineGrow {
+            from {
+                transform: scaleY(0);
+            }
+
+            to {
+                transform: scaleY(1);
+            }
+        }
+
+        /* Timeline markers */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: var(--primary);
+            border: 3px solid var(--dark);
+            border-radius: 50%;
+            top: 20px;
+            z-index: 1;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -10px;
+        }
+
+        .timeline-item:hover::after {
+            background-color: var(--secondary);
+            transform: scale(1.3);
+        }
+
+        /* Mobile adjustments for education section */
+        @media (max-width: 768px) {
+            .timeline-details {
+                flex-direction: column;
+            }
+
+            .timeline-expand {
+                align-self: flex-end;
+                margin-top: 10px;
+                margin-left: 0;
+            }
+
+            .timeline-item::after {
+                left: 22px !important;
+                right: auto !important;
+            }
+        }
     </style>
 </head>
 
@@ -1467,6 +1598,7 @@
     </section>
 
     <!-- Education Section -->
+    <!-- Education Section -->
     <section class="education" id="education">
         <div class="container">
             <h2 class="section-title">Education & Experience</h2>
@@ -1476,16 +1608,36 @@
                     <div class="timeline-content">
                         <span class="timeline-date">2022 - Present</span>
                         <h3 class="timeline-title">B.Sc. in Computer Science</h3>
-                        <p class="timeline-desc">University of Technology, Yangon<br>Specializing in Artificial
-                            Intelligence and Data Science<br>Current GPA: 3.8/4.0</p>
+                        <div class="timeline-details">
+                            <p class="timeline-desc">University of Technology, Yangon<br>Specializing in Artificial
+                                Intelligence and Data Science<br>Current GPA: 3.8/4.0</p>
+                            <div class="timeline-expand">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-more">
+                            <p><strong>Relevant Coursework:</strong> Machine Learning, Data Structures, Algorithms,
+                                Neural Networks, Database Systems, Web Development</p>
+                            <p><strong>Achievements:</strong> Dean's List for 3 consecutive semesters</p>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">2020</span>
                         <h3 class="timeline-title">High School Diploma</h3>
-                        <p class="timeline-desc">Basic Education High School No-2, Bago<br>Graduated with distinction in
-                            Mathematics and Science</p>
+                        <div class="timeline-details">
+                            <p class="timeline-desc">Basic Education High School No-2, Bago<br>Graduated with
+                                distinction in
+                                Mathematics and Science</p>
+                            <div class="timeline-expand">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-more">
+                            <p><strong>Achievements:</strong> Mathematics Excellence Award, Science Fair Winner</p>
+                            <p><strong>Extracurriculars:</strong> Programming Club President, Robotics Team</p>
+                        </div>
                     </div>
                 </div>
 
@@ -1494,18 +1646,37 @@
                     <div class="timeline-content">
                         <span class="timeline-date">Summer 2024</span>
                         <h3 class="timeline-title">Machine Learning Learning Journey</h3>
-                        <p class="timeline-desc">Explored machine learning concepts and built small projects focused on
-                            natural language processing (NLP) using online courses and personal research. Practiced
-                            model training and evaluation using Python and scikit-learn.</p>
+                        <div class="timeline-details">
+                            <p class="timeline-desc">Explored machine learning concepts and built small projects focused
+                                on
+                                natural language processing (NLP) using online courses and personal research.</p>
+                            <div class="timeline-expand">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-more">
+                            <p><strong>Technologies:</strong> Python, TensorFlow, Scikit-learn, NLTK</p>
+                            <p><strong>Projects:</strong> Sentiment Analysis Tool, Basic Chatbot, Image Classifier</p>
+                            <p><strong>Resources:</strong> Coursera ML Specialization, Fast.ai, Research Papers</p>
+                        </div>
                     </div>
                 </div>
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <span class="timeline-date">2023 - 2024</span>
                         <h3 class="timeline-title">Web Development Learning Journey</h3>
-                        <p class="timeline-desc">Self-taught web development fundamentals including HTML, CSS,
-                            JavaScript, and modern frameworks like React. Built personal projects and responsive
-                            websites to practice and reinforce skills.</p>
+                        <div class="timeline-details">
+                            <p class="timeline-desc">Self-taught web development fundamentals including HTML, CSS,
+                                JavaScript, and modern frameworks like React.</p>
+                            <div class="timeline-expand">
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                        </div>
+                        <div class="timeline-more">
+                            <p><strong>Technologies:</strong> HTML5, CSS3, JavaScript, React, Node.js, Express</p>
+                            <p><strong>Projects:</strong> Portfolio Website, E-commerce Demo, Weather App</p>
+                            <p><strong>Resources:</strong> FreeCodeCamp, MDN Web Docs, YouTube Tutorials</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1594,18 +1765,20 @@
         <div class="container">
             <div class="social-links">
                 <a href="https://github.com/thutacodes404" class="social-link"><i class="fab fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/kyaw-thuta-oo-66a444261/" class="social-link"><i class="fab fa-linkedin-in"></i></a>  
-                <a href="https://www.instagram.com/dam_itz_k?igsh=MTZsbTAzMDYza3V3eA%3D%3D&utm_source=qr" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/in/kyaw-thuta-oo-66a444261/" class="social-link"><i
+                        class="fab fa-linkedin-in"></i></a>
+                <a href="https://www.instagram.com/dam_itz_k?igsh=MTZsbTAzMDYza3V3eA%3D%3D&utm_source=qr"
+                    class="social-link"><i class="fab fa-instagram"></i></a>
             </div>
             <p class="copyright">© 2023 Kyaw Thuta Oo. All Rights Reserved.</p>
         </div>
     </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-<script type="text/javascript">
-    // Initialize EmailJS with your public key
-    emailjs.init("f0M7n4KFeBHIRn0WO"); // Replace with your actual Public Key
-</script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS with your public key
+        emailjs.init("f0M7n4KFeBHIRn0WO"); // Replace with your actual Public Key
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -1617,6 +1790,51 @@
                 } else {
                     header.classList.remove('scrolled');
                 }
+            });
+
+            // Education section interactivity
+            document.addEventListener('DOMContentLoaded', function () {
+                const timelineItems = document.querySelectorAll('.timeline-item');
+
+                // Add click event to each timeline item
+                timelineItems.forEach(item => {
+                    item.addEventListener('click', function () {
+                        // Toggle active class
+                        this.classList.toggle('active');
+
+                        // Close other items if this one is opened
+                        if (this.classList.contains('active')) {
+                            timelineItems.forEach(otherItem => {
+                                if (otherItem !== this && otherItem.classList.contains('active')) {
+                                    otherItem.classList.remove('active');
+                                }
+                            });
+                        }
+                    });
+                });
+
+                // Animate timeline items on scroll
+                const observerOptions = {
+                    threshold: 0.3,
+                    rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = 1;
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, observerOptions);
+
+                // Set initial state and observe each item
+                timelineItems.forEach((item, index) => {
+                    item.style.opacity = 0;
+                    item.style.transform = 'translateY(20px)';
+                    item.style.transition = `opacity 0.5s ease ${index * 0.2}s, transform 0.5s ease ${index * 0.2}s`;
+                    observer.observe(item);
+                });
             });
 
             // Mobile menu toggle
@@ -1703,29 +1921,29 @@
             // Form submission
             const contactForm = document.getElementById('contactForm');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
+            if (contactForm) {
+                contactForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
 
-            // Prepare the form data
-            const formData = {
-                name: document.getElementById('name').value,
-                email: document.getElementById('email').value,
-                subject: document.getElementById('subject').value,
-                message: document.getElementById('message').value
-            };
+                    // Prepare the form data
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        email: document.getElementById('email').value,
+                        subject: document.getElementById('subject').value,
+                        message: document.getElementById('message').value
+                    };
 
-            // Send form via EmailJS - FIXED SERVICE ID
-            emailjs.send("service_iuxbczf", "template_7gln34q", formData)
-                .then(function () {
-                    showNotification("Thank you! Your message has been sent.");
-                    contactForm.reset();
-                }, function (error) {
-                    showNotification("Oops! Something went wrong. Try again.");
-                    console.error('FAILED...', error);
+                    // Send form via EmailJS - FIXED SERVICE ID
+                    emailjs.send("service_iuxbczf", "template_7gln34q", formData)
+                        .then(function () {
+                            showNotification("Thank you! Your message has been sent.");
+                            contactForm.reset();
+                        }, function (error) {
+                            showNotification("Oops! Something went wrong. Try again.");
+                            console.error('FAILED...', error);
+                        });
                 });
-        });
-    }
+            }
 
             function showNotification(message) {
                 const notification = document.createElement('div');
@@ -1767,10 +1985,11 @@
                     downloadOverlay.classList.add('active');
                     downloadMessage.textContent = "Preparing your download...";
 
-                    // Simulate download progress
+                    // Simulate download progress - FASTER VERSION
                     let progress = 0;
                     const interval = setInterval(() => {
-                        progress += Math.random() * 10;
+                        // Increase progress by 15-20% each interval instead of 0-10%
+                        progress += Math.random() * 20 + 15;
                         if (progress >= 100) {
                             progress = 100;
                             clearInterval(interval);
@@ -1783,7 +2002,7 @@
                                 downloadComplete.style.display = 'block';
                                 downloadMessage.textContent = "Download complete!";
 
-                                // After 2 seconds, close the overlay and trigger actual download
+                                // After 1.5 seconds (reduced from 2), close the overlay and trigger actual download
                                 setTimeout(() => {
                                     downloadOverlay.classList.remove('active');
 
@@ -1801,8 +2020,8 @@
                                         downloadBar.querySelector('.download-text').textContent = '0%';
                                         downloadComplete.style.display = 'none';
                                     }, 500);
-                                }, 2000);
-                            }, 500);
+                                }, 1500); // Reduced from 2000ms to 1500ms
+                            }, 300); // Reduced from 500ms to 300ms
                         } else {
                             downloadBar.style.width = progress + '%';
                             downloadBar.querySelector('.download-text').textContent = Math.round(progress) + '%';
@@ -1811,10 +2030,9 @@
                                 downloadMessage.textContent = "Downloading your CV...";
                             }
                         }
-                    }, 100);
+                    }, 80); // Reduced from 100ms to 80ms for faster updates
                 });
             }
-
             // Add comic-style hover effects to all buttons
             const buttons = document.querySelectorAll('.btn');
             buttons.forEach(button => {
